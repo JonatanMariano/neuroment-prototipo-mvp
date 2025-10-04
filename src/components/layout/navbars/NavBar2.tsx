@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import colors from "../../../styles/colors";
 import { useNavigate } from "react-router-dom";
-import profileImg from "../../../assets/icons/profile.png"; // ajuste se necessário
+import profileImg from "../../../assets/icons/profile.png";
 
 const NavBar = styled.nav`
   height: 64px;
@@ -97,7 +97,7 @@ const SearchInput = styled.input<{ visible: boolean }>`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: 32px; /* abre à esquerda da lupa */
+  right: 32px;
   width: ${(props) => (props.visible ? "180px" : "0")};
   padding: ${(props) => (props.visible ? "4px 12px" : "0")};
   opacity: ${(props) => (props.visible ? 1 : 0)};
@@ -133,6 +133,12 @@ const NavBar2: React.FC = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // --- Função para ir ao perfil + seção ---
+  const goToProfileSection = (sectionId: string) => {
+    navigate("/profile", { state: { sectionId } });
+    setProfileOpen(false);
+  };
+
   return (
     <NavBar>
       {/* Left */}
@@ -146,9 +152,9 @@ const NavBar2: React.FC = () => {
 
       {/* Center */}
       <CenterSection>
-        <li>Home</li>
+        <li onClick={() => navigate("/home")}>Home</li>
         <li>Dashboard</li>
-        <li>Pricing</li>
+        <li onClick={() => navigate("/planos-user")}>Pricing</li>
         <li>News</li>
       </CenterSection>
 
@@ -164,8 +170,17 @@ const NavBar2: React.FC = () => {
         <ProfileIcon src={profileImg} alt="Profile" onClick={() => navigate("/profile")} />
         <IconButton onClick={() => setProfileOpen(!profileOpen)}>▼</IconButton>
         <DropDownRight visible={profileOpen}>
-          <p>Profile Option 1</p>
-          <p>Profile Option 2</p>
+          <p onClick={() => navigate("/profile")}>View Public Profile</p>
+          <p onClick={() => goToProfileSection("basic")}>Profile</p>
+          <p>Photo</p>
+          <p onClick={() => goToProfileSection("playerstats")}>Player Stats</p>
+          <p onClick={() => goToProfileSection("insights")}>Study Personalization</p>
+          <p onClick={() => goToProfileSection("privacy")}>Account Security</p>
+          <p>Subscriptions</p>
+          <p>Payment Methods</p>
+          <p>Privacy</p>
+          <p>Notification Preference</p>
+          <p>Close Account</p>
         </DropDownRight>
 
         <XPContainer>XP 120</XPContainer>

@@ -56,7 +56,7 @@ const NavBar1: React.FC = () => {
       <NavLinks>
         <li>FAQ</li>
         <li>Solutions</li>
-        <li>Pricing</li>
+        <li onClick={() => navigate("/planos-landing")}>Pricing</li>
         <li>Company</li>
       </NavLinks>
       <SignInButton onClick={() => navigate("/register")}>

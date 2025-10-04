@@ -27,6 +27,11 @@ const colors = {
   // Outros usos
   link: "#007bff",
   disabled: "#c0c0c0",
+
+  // Cores adicionais pedidas
+  purple: "#8e44ad",
+  green: "#2ecc71",
+  orange: "#e67e22",
 } as const;
 
 export default colors;

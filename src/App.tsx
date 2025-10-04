@@ -7,6 +7,9 @@ import ConfirmEmailPage from "./pages/ConfirmEmailPage";
 import ConfirmSuccess from "./pages/ConfirmSuccess";
 import ChangePassword from "./pages/ChangePassword";
 import HomePage from "./pages/HomePage";
+import PlanosLanding from "./pages/PlanosLanding";
+import PlanosUser from "./pages/PlanosUser";
+import Profile from "./pages/Profile";  
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
         <Route path="/confirm-success" element={<ConfirmSuccess/>} />
         <Route path="/change-password" element={<ChangePassword/>} />
         <Route path="/home" element={<HomePage/>} />
+        <Route path="/planos-landing" element={<PlanosLanding/>} />
+        <Route path="/planos-user" element={<PlanosUser/>} />
+        <Route path="/profile" element={<Profile/>} />
       </Routes>
     </BrowserRouter>
   );
