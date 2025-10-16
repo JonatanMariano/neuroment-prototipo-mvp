@@ -82,7 +82,7 @@ const plans = [
 ];
 
 const LandingPage: React.FC = () => {
-  const carouselRef = useRef<HTMLDivElement>(null);
+  //const carouselRef = useRef<HTMLDivElement>(null); (não usado no momento)
 
   return (
     <PageContainer>

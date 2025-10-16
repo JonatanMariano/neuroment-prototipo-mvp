@@ -63,20 +63,16 @@ type PlanCarouselProps = {
 
 const PlanCarousel: React.FC<PlanCarouselProps> = ({ plans }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState<"forward" | "backward">("forward");
 
   const handleNext = () => {
     if (currentIndex < plans.length - 1) {
       setCurrentIndex(prev => prev + 1);
-      setDirection("forward");
-    } 
-    // Para no último card
+    }
   };
 
   const handlePrev = () => {
     if (currentIndex > 0) {
       setCurrentIndex(prev => prev - 1);
-      setDirection("backward");
     }
   };
 
@@ -102,4 +98,3 @@ const PlanCarousel: React.FC<PlanCarouselProps> = ({ plans }) => {
 };
 
 export default PlanCarousel;
-
